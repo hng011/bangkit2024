@@ -1,0 +1,1 @@
+this is a text from echo and store it into some file
