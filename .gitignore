@@ -4,3 +4,4 @@
 __pycache__
 *.csv
 support_files
+runDocker.sh
