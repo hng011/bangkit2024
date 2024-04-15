@@ -11,6 +11,9 @@ RUN apt-get install -y \
 	libopenblas-dev \
 	liblapack-dev \
 	libhdf5-dev \
-	graphviz 
+	python3-h5py \
+	graphviz \
+	&& apt-get clean \
+	&& rm -fr /var/lib/apt/lists/*
 
-RUN python3 -m pip install numpy matplotlib scipy seaborn pandas notebook pyarrow scikit-learn pydot-ng theano
+RUN python3 -m pip install numpy matplotlib scipy==1.10.1 seaborn pandas notebook pyarrow scikit-learn pydot-ng theano pooch

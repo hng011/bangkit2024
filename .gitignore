@@ -3,5 +3,6 @@
 .pytest_cache
 __pycache__
 *.csv
+data
 support_files
 runDocker.sh
