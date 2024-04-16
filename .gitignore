@@ -1,8 +1,11 @@
 .env
+.ipynb_checkpoints
 .vscode
 .pytest_cache
 __pycache__
 *.csv
 data
+*.zip
 support_files
 runDocker.sh
+tmp
