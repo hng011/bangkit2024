@@ -9,3 +9,5 @@ data
 support_files
 runDocker.sh
 tmp
+*.json
+*.tsv
