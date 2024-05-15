@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mine 1</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+<body>
+
+    <p id="epochs"></p>
+    <h1 id="result"></h1>
+
+    <script lang="js">
+
+        let epochs = document.getElementById("epochs")
+        let result = document.getElementById("result")
+
+        const model = tf.sequential();
+        
+        model.add(tf.layers.dense({units: 1, inputShape: [1]}));
+
+        model.compile({
+            loss: "meanSquaredError",
+            optimizer: "sgd"
+        });
+        
+        model.summary();
+
+        const xs = tf.tensor2d([-1.0, 0.0, 1.0, 2.0, 3.0, 4.0], [6, 1])
+        const ys = tf.tensor2d([-3.0, -1.0, 1.0, 3.0, 5.0, 7.0], [6, 1])
+        
+        const doTraining = async (model) => {
+            const history = await model.fit(
+                xs,
+                ys,
+                {
+                    epochs: 300,
+                    callbacks: {
+                        onEpochEnd: async (epoch, logs) => {
+                            // console.log("epoch: "+ epoch + " loss: " + logs.loss);
+                            res = "epoch: "+ epoch + " loss: " + logs.loss + "\n";
+                            console.log(res)
+                            epochs.innerText = res
+                        }
+                    }
+                }
+            );
+        }
+
+        doTraining(model).then(() => {
+            result.innerText = "Res: "+model.predict(tf.tensor2d([10], [1,1]));
+        });
+
+    </script>
+</body>
+</html>

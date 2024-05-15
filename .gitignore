@@ -11,3 +11,4 @@ runDocker.sh
 tmp
 *.json
 *.tsv
+github*
