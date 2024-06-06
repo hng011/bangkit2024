@@ -4,7 +4,6 @@
 .pytest_cache
 __pycache__
 *.csv
-data
 *.zip
 support_files
 runDocker.sh
@@ -12,3 +11,9 @@ tmp
 *.json
 *.tsv
 github*
+*jpg
+*png
+*h5
+*tflite
+*pb
+*data*
